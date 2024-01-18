@@ -19,8 +19,7 @@ After this, the data was ready for a Yolov8 model to train on the dataset.
 ## Methods
 The cvat.ai tool can export the annotation in YOLO 1.1 format, so the data was immediately ready to be trained by Yolov8. The model was able to find the greatest success when the image size was at least 1024. Data augmentation was used during training and the model was trained to label the object and assign a confidence level probability as shown in this batch of images from the validation data.
 
-![](/images/validation_image.png)   
-![](/images/sample_training.png)
+![](/images/validation_image.jpg)                              ![](/images/sample_training.jpg)
 
 The objective of this project is to utilize object detection and tracking techniques in computer vision to provide golf ball launch statistics from slow-motion videos filmed on smartphone devices
 
