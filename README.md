@@ -1,4 +1,4 @@
-# Computer Vision Detection and Tracking of Golf Ball from Smartphone Videos
+# CV Detection and Tracking of Golf Ball from Smartphone Videos
 
 
 
