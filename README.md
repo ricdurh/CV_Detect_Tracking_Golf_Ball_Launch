@@ -67,3 +67,10 @@ and club were able to be tracked throughout the frames of the videos. With impro
 launch metrics with precision similar to the lower-end launch metrics. More robust models will need to be created, but with enough data and the correct locations of these objects, it comes 
 down to solving for the physics or allowing neural networks to appropriately capture the patterns.
 
+The key to future work is an improved dataset. This consists of gathering closer to 1,000 shots instead of the 93 used for data here. Variability of the golf shots would be larger than this dataset with shot distances ranging from 115 to 215 yards instead of 160 to 196 yards. The quality of the videos would improve with cameras filming horizontally and focused on the right section to capture the entirety of the swing from both angles. With better-quality data, the prediction model should be able to improve. Similar to this analysis, a series of models would be tested to identify the best fit. The bidirectional RNN is expected to be the best fit, and if this is the case, the architecture of such a model would be tested across different parameters. An additional next step would be the use of object segmentation instead of detection. This would result in a model that seeks to determine which pixel belongs to which object and could provide rich data to be used in modeling. 
+
+
+## Acknowledgements
+The YouTube videos and associated GitHub documentation from both [Computer Vision Engineer](https://www.youtube.com/watch?v=jIRRuGN0j5E) and [Muhammad Moin Faisal](https://github.com/MuhammadMoinFaisal/YOLOv8-DeepSORT-Object-Tracking) were extremely helpful in the development of the code for object detection and tracking. The Yolov8 documentation in [Ultralytics](https://docs.ultralytics.com/) was similarly instrumental for detection, tracking, and training.
+
+
