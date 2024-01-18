@@ -21,16 +21,16 @@ The cvat.ai tool can export the annotation in YOLO 1.1 format, so the data was i
 
 ![](/images/sample_training.jpg)    ![](/images/validation_image.jpg)
 
+
+|![](/images/sample_training.jpg)|![](/images/validation_image.jpg)|
+|:-:|:-:|
+|Training Batch with Data Augmentation|Validation Batch with Confidence Level Probability|
+
 The objective of this project is to utilize object detection and tracking techniques in computer vision to provide golf ball launch statistics from slow-motion videos filmed on smartphone devices
 
 
 
-|![](/images/sample_training.jpg)<br>text-1|![](/images/validation_image.jpg)<br>text-2|
-|:-:|:-:|
 
 
-|![](/images/sample_training.jpg)|![](/images/validation_image.jpg)|
-|:-:|:-:|
-|text-1|text-2|
 
 ![](/images/dtl_sequence.png)
