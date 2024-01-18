@@ -33,15 +33,37 @@ Once the impact location was identified, the data was simplified to the five fra
 
 ## Results
 
-Unfortunately, the prediction model was not able to achieve the desired success. The metrics did not indicate the models were much better than choosing the mean distance of the golf shot as the prediction. However, the detection model was successful in detecting and tracking golf club and ball movements throughout the video, which should lead to improved models in the future with a larger dataset and improved camera placement. The trained Yolov8 model achieved 99.8% correct classification for predicting the objects, an improvement on previous models that were closer to 76%. For the video data, and within the 12 frames used for prediction, the model was 99.1% accurate in correctly identifying the objects
+Unfortunately, the prediction model was not able to achieve the desired success. The metrics did not indicate the models were much better than choosing the mean distance of the golf shot as the prediction. However, the detection model was successful in detecting and tracking golf club and ball movements throughout the video, which should lead to improved models in the future with a larger dataset and improved camera placement. The trained Yolov8 model achieved 99.8% correct classification for predicting the objects, an improvement on previous models that were closer to 76%. Here are the metric results of the trained Yolov8 model based on the sample of 300 images:
+
+![](/images/yolov8_metric_results.png)
+
+For the video data, and within the 12 frames used for prediction, the model was 99.2% accurate in correctly identifying the objects. 
 
 ![](/images/detection_model_accuracy_12_frames.png)
 
-The objective of this project is to utilize object detection and tracking techniques in computer vision to provide golf ball launch statistics from slow-motion videos filmed on smartphone devices
+Once accounting for misses due to the club partially missing from the frame, the accuracy improves to 99.5%. Other misses were either the club being mistaken for the launch monitor case in the background, or the golf ball not being identified since the clouds in the background were nearly the same color. These errors could be adjusted for in the future with more sample images of these instances and better camera angles. This led to 23 manual adjustments by going to the specific frame and finding the correct coordinates. 
+
+The prediction model struggled to differentiate from guessing the mean carry distance. For such a model to pick up on the complex relationships of the frame-by-frame data, more data is required. Additionally, the xy-coordinates vary due to the inexact bounding box measurements and the limitations of a 240-fps video means only so many frames can be taken when the downswing of a club is about 0.25 seconds. The launch monitor accuracy at 98% means I should probably seek to have a dataset with a wider range of data, as opposed to the carry distance ranging from 161.8 to 196.1 yards.
+
+## Conclusion
+An initial concern for the project was whether the model would be able to correctly capture the golf ball and club objects throughout the entirety of the video. Though the prediction models 
+were subpar due to the size of the dataset, the foundational piece of the detection and tracking model provides optimism for future iterations of the project. The video was recorded at such a 
+distance due to initial concerns for detection capabilities from initial test videos exploring the viability of the project. Furthermore, once the model training began, it took several iterations to 
+better understand why the model was unable to detect the golf ball and club at times. Without a high enough image size, the model had a difficult time detecting the objects right after impact 
+when they were at their highest speeds. Additionally, without the higher image quality, the objects were more easily mistaken for other objects like the clouds, launch monitor case, and trees in the 
+distance. This is somewhat of a concern since the higher image size requires more computing resources and is something that could be further explored in the future.
 
 
+The tracking model would at times identify false objects, like small white tees flying in the air after impact. This could be addressed with more sample images in the training dataset and 
+was worked around in this project by first identifying the true starting location for the ball. Another issue faced with the data is the nature of the 240-fps videos. One video might capture the club when it’s 3” away from contacting the ball, but the next video might capture a similar swing and identify the club when it’s 8” away from the ball and the next frame is when the club 
+is contacting the ball. I believe with enough data, these inconsistencies can be sorted out and with improved camera angles, more of the swing can be captured. This would provide a better 
+approximation of the parabola of the golf club’s movement, which was used to explore the viability to be used as a variable, as well as the interaction terms between object location, fitted lines or parabolas, and the calculated speed at the location.
 
 
+![](/images/fitted_parabola_club.png)
 
+Though the prediction model did not provide substantial insights, the quality of the detection and tracking models laid a framework for future iterations of this project. The golf ball 
+and club were able to be tracked throughout the frames of the videos. With improved camera angles, distance from the ball, and more data, I believe in the ability to predict the 
+launch metrics with precision similar to the lower-end launch metrics. More robust models will need to be created, but with enough data and the correct locations of these objects, it comes 
+down to solving for the physics or allowing neural networks to appropriately capture the patterns.
 
-![](/images/dtl_sequence.png)
