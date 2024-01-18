@@ -10,8 +10,16 @@ The data was gathered by filming 150 golf shots on two separate iPhones. The sma
 
 ![](/images/fo_sequence.png)
 
+Due to some issues with the launch monitor and the clicker, 93 shots were successful in capturing both video angles and the launch monitor data. The small dataset hurt the ability to accurately build the prediction model and is a top priority for future steps. The images were uploaded to Google Drive for storage and retrieval and prepared using the python package CV2. This package prepared the video to be analyzed frame-by-frame for Yolov8. After initial experiments using the pre-trained model on the [COCO](https://cocodataset.org/#home) dataset, I used a sample of 300 frames images taken from the video data and manually annotated bounding boxes to the club and ball using [cvat.ai](https://www.cvat.ai/).
 
+![](/images/cvat.ai.png)
 
+After this, the data was ready for a Yolov8 model to train on the dataset.
+
+## Methods
+The cvat.ai tool can export the annotation in YOLO 1.1 format, so the data was immediately ready to be trained by Yolov8. The model was able to find the greatest success when the image size was at least 1024. Data augmentation was used during training and the model was trained to label the object and assign a confidence level probability as shown in this batch of images from the validation data.
+
+![](/images/validation_image.png)   ![](/images/sample_training.png)
 
 The objective of this project is to utilize object detection and tracking techniques in computer vision to provide golf ball launch statistics from slow-motion videos filmed on smartphone devices
 
