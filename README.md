@@ -25,6 +25,12 @@ The objective of this project is to utilize object detection and tracking techni
 
 
 
+|![](/images/sample_training.jpg)<br>text-1|![](/images/validation_image.jpg)<br>text-2|
+|:-:|:-:|
 
+
+|![](/images/sample_training.jpg)|![](/images/validation_image.jpg)|
+|:-:|:-:|
+|text-1|text-2|
 
 ![](/images/dtl_sequence.png)
